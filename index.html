@@ -1,0 +1,66 @@
+
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto; /* 隐藏滚动条 */
+    }
+
+    #my-iframe {
+      width: 100%; 
+      height: 100%; 
+      border: none; /* 移除边框（可选）*/
+      overflow-y: auto; /* 显示垂直滚动条 */
+    }
+  </style>
+</head>
+
+
+<body>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onbeforecopy="return false" onmouseup=document.selection.empty() oncopy=document.selection.empty() onselect=document.selection.empty()>
+
+  <iframe src="" id="my-iframe" scrolling="auto"></iframe>
+
+  <script>
+
+	document.addEventListener('keydown', function (event) {
+  			if (
+    			event.keyCode === 123 || 
+   			 (event.ctrlKey && event.shiftKey && event.keyCode === 73) || 
+   			 (event.ctrlKey && event.keyCode === 83) || 
+   			 (event.ctrlKey && event.keyCode === 65 && event.target.nodeName === 'BODY') 
+  			 ) {
+   			 event.preventDefault(); 
+  			}
+			});
+    function xorDecrypt(str, key) {
+      var result = '';
+      for (var i = 0; i < str.length; i++) {
+        var k = key.charCodeAt(i % key.length); // 获取密钥字符的 ASCII 码
+        result += String.fromCharCode(str.charCodeAt(i) ^ k); // 对密文进行异或运算
+      }
+      return result;
+    }
+    function base64Decode(str) {
+      return decodeURIComponent(escape(atob(str)));
+    }
+
+    var encodedUrl = 'Ch0RUAlbRg8ECAtHGQpWGUFeDhMAFQZVBk8GT1gOAEVL';
+    var key = 'bie zai jie le ,yi tian dao wan de ni fan bu fan a ,wo zheng li ye shi xu yao shi jian de ,zhe me xian ni neng bu neng zhi jie zhao xing hui ba ta mai xia lai a? wo zai fa xian ni jie le wang qun li fa jiu zhi jie shan ku pao lu ,ai shei gao shei gao ,huo gai ni you dao bi huo gai ni mei fan chi ';
+	/*别再解了，一天到晚的你烦不烦啊，我整理也是需要时间的，这么闲你能不能直接找星辉把它买下来啊？我再发现你解了往群里发就直接删库跑路，爱谁搞谁搞，活该你游倒闭活该你没饭吃*/
+   
+    var encryptedUrl = base64Decode(encodedUrl);
+    var decryptedUrl = xorDecrypt(encryptedUrl, key);
+    var iframe = document.getElementById('my-iframe');
+    iframe.src = decryptedUrl;
+
+    var iframe = document.getElementById('my-iframe');
+    iframe.src = decryptedUrl;
+  
+  </script>
+</body>
